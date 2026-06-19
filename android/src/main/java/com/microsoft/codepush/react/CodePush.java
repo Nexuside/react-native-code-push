@@ -50,7 +50,7 @@ public class CodePush implements ReactPackage {
 
     // Config properties.
     private String mDeploymentKey;
-    private static String mServerUrl = "https://api.nexuside.org/";
+    private static String mServerUrl = "https://api.nexuside.com/";
 
     private Context mContext;
     private final boolean mIsDebugMode;

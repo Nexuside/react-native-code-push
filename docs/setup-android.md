@@ -51,7 +51,7 @@ In order to integrate CodePush into your Android project, please perform the fol
    To let the CodePush runtime know which deployment it should query for updates, open your app's `strings.xml` file and 
 add a new string named `CodePushDeploymentKey`, whose value is the key of the deployment you want to configure this app against 
 (like the key for the `Staging` deployment for the `FooBar` app). You can retrieve this value by running `nexuside deployment ls <appName> -k` 
-in the nexuside CLI (the `-k` or `--displayKeys` flag is necessary since keys aren't displayed by default) or take in [nexuside UI](https://app.nexuside.org/applications) 
+in the nexuside CLI (the `-k` or `--displayKeys` flag is necessary since keys aren't displayed by default) or take in [nexuside UI](https://app.nexuside.com/applications) 
 and copying the value of the `Key` column which corresponds to the deployment you want to use (see below). Note that using the deployment's name (like Staging) will not work. 
 The "friendly name" is intended only for authenticated management usage from the CLI, and not for public consumption within your app.
 

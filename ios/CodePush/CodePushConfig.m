@@ -46,7 +46,7 @@ static NSString * const PublicKeyKey = @"publicKey";
     }
 
     if (!serverURL) {
-        serverURL = @"https://api.nexuside.org/";
+        serverURL = @"https://api.nexuside.com/";
     }
 
     _configDictionary = [NSMutableDictionary dictionary];

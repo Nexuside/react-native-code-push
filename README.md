@@ -1,4 +1,4 @@
-#### [Sign up With nexuside](https://app.nexuside.org/register) to use CodePush SDK
+#### [Sign up With nexuside](https://app.nexuside.com/register) to use CodePush SDK
 
 # React Native SDK for nexuside (CodePush compatible service)
 
@@ -88,7 +88,7 @@ As new core components are released, which support referencing assets, we'll upd
 
 ## Getting Started
 
-After you've created an account on [nexuside](https://app.nexuside.org/register), you can start CodePush-ifying your React Native app by running the following command from within your app's root directory:
+After you've created an account on [nexuside](https://app.nexuside.com/register), you can start CodePush-ifying your React Native app by running the following command from within your app's root directory:
 
 ```shell
 npm install --save @nexuside/react-native-code-push
