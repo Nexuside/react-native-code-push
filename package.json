@@ -1,18 +1,18 @@
 {
-  "name": "@revopush/react-native-code-push",
+  "name": "@nexuside/react-native-code-push",
   "version": "1.5.0",
   "description": "React Native plugin for the CodePush service",
   "main": "CodePush.js",
   "typings": "typings/react-native-code-push.d.ts",
-  "homepage": "https://revopush.org/",
+  "homepage": "https://nexuside.org/",
   "keywords": [
     "react-native",
     "code",
-    "revopush",
+    "nexuside",
     "ota",
     "push"
   ],
-  "author": "Revopush",
+  "author": "nexuside",
   "license": "MIT",
   "scripts": {
     "clean": "shx rm -rf bin",
@@ -34,7 +34,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/revopush/react-native-code-push"
+    "url": "https://github.com/nexuside/react-native-code-push"
   },
   "dependencies": {
     "code-push": "4.2.3",
@@ -75,8 +75,8 @@
       ]
     },
     "commands": {
-      "postlink": "node node_modules/@revopush/react-native-code-push/scripts/postlink/run",
-      "postunlink": "node node_modules/@revopush/react-native-code-push/scripts/postunlink/run"
+      "postlink": "node node_modules/@nexuside/react-native-code-push/scripts/postlink/run",
+      "postunlink": "node node_modules/@nexuside/react-native-code-push/scripts/postunlink/run"
     }
   }
 }

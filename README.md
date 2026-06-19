@@ -1,8 +1,8 @@
-#### [Sign up With Revopush](https://app.revopush.org/register) to use CodePush SDK
+#### [Sign up With nexuside](https://app.nexuside.org/register) to use CodePush SDK
 
-# React Native SDK for Revopush (CodePush compatible service)
+# React Native SDK for nexuside (CodePush compatible service)
 
-This plugin provides client-side integration for the [CodePush service](https://revopush.org/), allowing you to easily add a dynamic update experience to your React Native app(s).
+This plugin provides client-side integration for the [CodePush service](https://nexuside.org/), allowing you to easily add a dynamic update experience to your React Native app(s).
 
 <!-- React Native Catalog -->
 
@@ -14,7 +14,7 @@ This plugin provides client-side integration for the [CodePush service](https://
     * [Android Setup](docs/setup-android.md)
 * [Plugin Usage](#plugin-usage)
 * [Releasing Updates](#releasing-updates)
-* [Migrate from Appcenter to Revopush](#migrate-from-appcenter)
+* [Migrate from Appcenter to nexuside](#migrate-from-appcenter)
 * [Continuous Integration / Delivery](#continuous-integration--delivery)
 * [Multi-Deployment Testing](#multi-deployment-testing)
     * [Android](docs/multi-deployment-testing-android.md)
@@ -88,10 +88,10 @@ As new core components are released, which support referencing assets, we'll upd
 
 ## Getting Started
 
-After you've created an account on [Revopush](https://app.revopush.org/register), you can start CodePush-ifying your React Native app by running the following command from within your app's root directory:
+After you've created an account on [nexuside](https://app.nexuside.org/register), you can start CodePush-ifying your React Native app by running the following command from within your app's root directory:
 
 ```shell
-npm install --save @revopush/react-native-code-push
+npm install --save @nexuside/react-native-code-push
 ```
 
 As with all other React Native plugins, the integration experience is different for iOS and Android, so perform the following setup steps depending on which platform(s) you are targeting. Note, if you are targeting both platforms it is recommended to create separate CodePush applications for each platform.
@@ -117,7 +117,7 @@ The simplest way to do this is to "CodePush-ify" your app's root component. To d
   * For class component
 
     ```javascript
-    import codePush from "@revopush/react-native-code-push";
+    import codePush from "@nexuside/react-native-code-push";
 
     class MyApp extends Component {
     }
@@ -128,7 +128,7 @@ The simplest way to do this is to "CodePush-ify" your app's root component. To d
   * For functional component
 
     ```javascript
-    import codePush from "@revopush/react-native-code-push";
+    import codePush from "@nexuside/react-native-code-push";
 
     let MyApp: () => React$Node = () => {
     }
@@ -143,7 +143,7 @@ The simplest way to do this is to "CodePush-ify" your app's root component. To d
   * For class component
 
     ```javascript
-    import codePush from "@revopush/react-native-code-push";
+    import codePush from "@nexuside/react-native-code-push";
 
     @codePush
     class MyApp extends Component {
@@ -153,7 +153,7 @@ The simplest way to do this is to "CodePush-ify" your app's root component. To d
   * For functional component
 
     ```javascript
-    import codePush from "@revopush/react-native-code-push";
+    import codePush from "@nexuside/react-native-code-push";
 
     const MyApp: () => React$Node = () => {
     }
@@ -223,16 +223,16 @@ If you would like to display an update confirmation dialog (an "active install")
 Once your app is configured and distributed to your users, and you have made some JS or asset changes, it's time to release them. The recommended way to release them is using the `release-react` command in the App Center CLI, which will bundle your JavaScript files, asset files, and release the update to the CodePush server.
 
 ```shell
-npm install -g @revopush/code-push-cli
+npm install -g @nexuside/code-push-cli
 ```
 
-*NOTE: Before you can start releasing updates, please log into Revopush by running the `revopush login` command.*
+*NOTE: Before you can start releasing updates, please log into nexuside by running the `nexuside login` command.*
 
 In its most basic form, this command only requires application name and platform (ios/android) .
 
 ```shell
-revopush release-react <appName> <platform ios/android>
-revopush release-react MyApp android -d Production
+nexuside release-react <appName> <platform ios/android>
+nexuside release-react MyApp android -d Production
 release-react MyApp ios
 ```
 
@@ -240,31 +240,31 @@ The `release-react` command enables such a simple workflow because it provides m
 
 ```shell
 # Release a mandatory update with a changelog
-revopush release-react MyApp ios -m --description "Modified the header color"
+nexuside release-react MyApp ios -m --description "Modified the header color"
 
 # Release an update for an app that uses a non-standard entry file name, and also capture
 # the sourcemap file generated by react-native bundle
-revopush release-react MyApp ios --entry-file MyApp.js --sourcemapOutput ../maps/MyApp.map
+nexuside release-react MyApp ios --entry-file MyApp.js --sourcemapOutput ../maps/MyApp.map
 
 # Release a dev Android build to just 1/4 of your end users
-revopush release-react MyApp android --rollout 25 --development true
+nexuside release-react MyApp android --rollout 25 --development true
 
 # Release an update that targets users running any 1.1.* binary, as opposed to
 # limiting the update to exact version name in the build.gradle file
-revopush release-react MyApp android  --targetBinaryVersion "~1.1.0"
+nexuside release-react MyApp android  --targetBinaryVersion "~1.1.0"
 ```
 
 The CodePush client supports differential updates, so even though you are releasing your JS bundle and assets on every update, your end users will only actually download the files they need. The service handles this automatically so that you can focus on creating awesome apps, and we can worry about optimizing end user downloads.
 
-For more details about how the `release-react` command works, as well as the various parameters it exposes, refer to the [CLI docs](https://github.com/revopush/code-push-cli/blob/main/README.md). Additionally, if you would prefer to handle running the `react-native bundle` command yourself, and therefore, want an even more flexible solution than `release-react`, refer to the [`release` command](https://github.com/microsoft/code-push/tree/v3.0.1/cli#releasing-updates-general) for more details.
+For more details about how the `release-react` command works, as well as the various parameters it exposes, refer to the [CLI docs](https://github.com/nexuside/code-push-cli/blob/main/README.md). Additionally, if you would prefer to handle running the `react-native bundle` command yourself, and therefore, want an even more flexible solution than `release-react`, refer to the [`release` command](https://github.com/microsoft/code-push/tree/v3.0.1/cli#releasing-updates-general) for more details.
 
-If you run into any issues, or have any questions/comments/feedback, [e-mail us](mailto:support@revopush.org) and/or check out the [troubleshooting](#debugging--troubleshooting) details below.
+If you run into any issues, or have any questions/comments/feedback, [e-mail us](mailto:support@nexuside.org) and/or check out the [troubleshooting](#debugging--troubleshooting) details below.
 
 *NOTE: CodePush updates should be tested in modes other than Debug mode. In Debug mode, React Native app always downloads JS bundle generated by packager, so JS bundle downloaded by CodePush does not apply.*
 
-### Migrate from Appcenter to Revopush
+### Migrate from Appcenter to nexuside
 
-Follow our [comprehensive guide](https://github.com/revopush/code-push-cli/blob/main/README.md) that will help you migrate your applications from App Center.
+Follow our [comprehensive guide](https://github.com/nexuside/code-push-cli/blob/main/README.md) that will help you migrate your applications from App Center.
 
 ### Continuous Integration / Delivery
 
@@ -272,29 +272,29 @@ In addition to being able to use the CodePush CLI to "manually" release updates,
 That way, it's simple enough for you and/or your team to create and maintain the rhythm of performing agile deployments. 
 In order to assist with setting up a CodePush-based CD pipeline, refer to the following integrations with various CI servers:
 
-* [Github Actions](https://github.com/revopush/revopush-github-action) - supports all the commands available in the Revopush CLI of appropriate version
-* [Bitrise Step](https://github.com/revopush/bitrise-steplib)
-* [Circle CI Orb](https://github.com/revopush/revopush-circleci-orb)
+* [Github Actions](https://github.com/nexuside/nexuside-github-action) - supports all the commands available in the nexuside CLI of appropriate version
+* [Bitrise Step](https://github.com/nexuside/bitrise-steplib)
+* [Circle CI Orb](https://github.com/nexuside/nexuside-circleci-orb)
 
-Additionally, if you'd like more integrations, please message us at [support@revopush.org](mailto:support@revopush.org)
+Additionally, if you'd like more integrations, please message us at [support@nexuside.org](mailto:support@nexuside.org)
 
 ### Multi-Deployment Testing
 
 In our [getting started](#getting-started) docs, we illustrated how to configure the CodePush plugin using a specific deployment key. However, in order to effectively test your releases, it is critical that you leverage the `Staging` and `Production` deployments that are auto-generated when you first created your CodePush app (or any custom deployments you may have created). This way, you never release an update to your end users that you haven't been able to validate yourself.
 
-*NOTE: Our client-side rollback feature can help unblock users after installing a release that resulted in a crash, and server-side rollbacks (i.e. `revopush rollback`) allow you to prevent additional users from installing a bad release once it's been identified. However, it's obviously better if you can prevent an erroneous update from being broadly released in the first place.*
+*NOTE: Our client-side rollback feature can help unblock users after installing a release that resulted in a crash, and server-side rollbacks (i.e. `nexuside rollback`) allow you to prevent additional users from installing a bad release once it's been identified. However, it's obviously better if you can prevent an erroneous update from being broadly released in the first place.*
 
 Taking advantage of the `Staging` and `Production` deployments allows you to achieve a workflow like the following (feel free to customize!):
 
-1. Release a CodePush update to your `Staging` deployment using the `revopush release-react` command (or `revopush release` if you need more control)
+1. Release a CodePush update to your `Staging` deployment using the `nexuside release-react` command (or `nexuside release` if you need more control)
 
 2. Run your staging/beta build of your app, sync the update from the server, and verify it works as expected
 
-3. Promote the tested release from `Staging` to `Production` using the `revopush promote` command
+3. Promote the tested release from `Staging` to `Production` using the `nexuside promote` command
 
 4. Run your production/release build of your app, sync the update from the server and verify it works as expected
 
-*NOTE: If you want to take a more cautious approach, you can even choose to perform a "staged rollout" as part of #3, which allows you to mitigate additional potential risk with the update (like did your testing in #2 touch all possible devices/conditions?) by only making the production update available to a percentage of your users (for example `revopush promote <appName> Staging Production -r 20`). Then, after waiting for a reasonable amount of time to see if any crash reports or customer feedback comes in, you can expand it to your entire audience by running `revopush patch <appName> Production -r 100`.*
+*NOTE: If you want to take a more cautious approach, you can even choose to perform a "staged rollout" as part of #3, which allows you to mitigate additional potential risk with the update (like did your testing in #2 touch all possible devices/conditions?) by only making the production update available to a percentage of your users (for example `nexuside promote <appName> Staging Production -r 20`). Then, after waiting for a reasonable amount of time to see if any crash reports or customer feedback comes in, you can expand it to your entire audience by running `nexuside patch <appName> Production -r 100`.*
 
 You'll notice that the above steps refer to a "staging build" and "production build" of your app. If your build process already generates distinct binaries per "environment", then you don't need to read any further, since swapping out CodePush deployment keys is just like handling environment-specific config for any other service your app uses (like Facebook). However, if you're looking for examples (**including demo projects**) on how to setup your build process to accommodate this, then refer to the following sections, depending on the platform(s) your app is targeting:
 
@@ -326,10 +326,10 @@ Since we recommend using the `Staging` deployment for pre-release testing of you
 
 ```javascript
 // #1) Create your new deployment to hold releases of a specific app variant
-revopush deployment add MyApp test-variant-one
+nexuside deployment add MyApp test-variant-one
 
 // #2) Target any new releases at that custom deployment
-revopush release-react MyApp android -d test-variant-one
+nexuside release-react MyApp android -d test-variant-one
 ```
 
 *NOTE: The total user count that is reported in your deployment's "Install Metrics" will take into account users that have "switched" from one deployment to another. For example, if your `Production` deployment currently reports having 1 total user, but you dynamically switch that user to `Staging`, then the `Production` deployment would report 0 total users, while `Staging` would report 1 (the user that just switched). This behavior allows you to accurately track your release adoption, even in the event of using a runtime-based deployment redirection solution.*
@@ -369,7 +369,7 @@ This is not necessarily the case for `updateDialog`, since it won't force the us
 
 ### Debugging / Troubleshooting
 
-The `sync` method includes a lot of diagnostic logging out-of-the-box, so if you're encountering an issue when using it, the best thing to try first is examining the output logs of your app. This will tell you whether the app is configured correctly (like can the plugin find your deployment key?), if the app is able to reach the server, if an available update is being discovered, if the update is being successfully downloaded/installed, etc. We want to continue improving the logging to be as intuitive/comprehensive as possible, so please [let us know](mailto:support@revopush.org) if you find it to be confusing or missing anything.
+The `sync` method includes a lot of diagnostic logging out-of-the-box, so if you're encountering an issue when using it, the best thing to try first is examining the output logs of your app. This will tell you whether the app is configured correctly (like can the plugin find your deployment key?), if the app is able to reach the server, if an available update is being discovered, if the update is being successfully downloaded/installed, etc. We want to continue improving the logging to be as intuitive/comprehensive as possible, so please [let us know](mailto:support@nexuside.org) if you find it to be confusing or missing anything.
 
 The simplest way to view these logs is to add the flag `--debug` for each command. This will output a log stream that is filtered to just CodePush messages. This makes it easy to identify issues, without needing to use a platform-specific tool, or wade through a potentially high volume of logs.
 

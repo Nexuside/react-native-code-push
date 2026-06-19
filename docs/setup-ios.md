@@ -75,7 +75,7 @@ Once you've acquired the CodePush plugin, you need to integrate it into the Xcod
 
    To let the CodePush runtime know which deployment it should query for updates against, open your app's `Info.plist` 
 file and add a new entry named `CodePushDeploymentKey`, whose value is the key of the deployment you want to configure 
-this app against (like the key for the `Staging` deployment for the `FooBar` app). You can retrieve this value by running `revopush deployment ls <appName> -k` in the Revopush CLI (the `-k` or `--displayKeys` flag is necessary since keys aren't displayed by default) or take in [Revopush UI](https://app.revopush.org/applications) and copying the value of the `Key` column which corresponds to the deployment you want to use (see below). Note that using the deployment's name (like Staging) will not work. 
+this app against (like the key for the `Staging` deployment for the `FooBar` app). You can retrieve this value by running `nexuside deployment ls <appName> -k` in the nexuside CLI (the `-k` or `--displayKeys` flag is necessary since keys aren't displayed by default) or take in [nexuside UI](https://app.nexuside.org/applications) and copying the value of the `Key` column which corresponds to the deployment you want to use (see below). Note that using the deployment's name (like Staging) will not work. 
 That "friendly name" is intended only for authenticated management usage from the CLI, and not for public consumption within your app.
 
    ![Deployment list](https://cloud.githubusercontent.com/assets/116461/11601733/13011d5e-9a8a-11e5-9ce2-b100498ffb34.png)
@@ -89,8 +89,8 @@ That "friendly name" is intended only for authenticated management usage from th
 
 CodePush plugin makes HTTPS requests to the following domains:
 
-- api.revopush.org
-- blob.revopush.org
+- api.nexuside.org
+- blob.nexuside.org
 
 If you want to change the default HTTP security configuration for any of these domains, you have to define the [`NSAppTransportSecurity` (ATS)][ats] configuration inside your __Info.plist__ file:
 
@@ -103,7 +103,7 @@ If you want to change the default HTTP security configuration for any of these d
     <dict>
       <key>NSExceptionDomains</key>
       <dict>
-        <key>api.revopush.org</key>
+        <key>api.nexuside.org</key>
         <dict><!-- read the ATS Apple Docs for available options --></dict>
       </dict>
     </dict>
